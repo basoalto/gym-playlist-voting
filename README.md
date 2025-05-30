@@ -15,6 +15,7 @@ Sigue la guía oficial para integrar Tailwind en un proyecto Vite:
 
 
 🛠️ Instalación y ejecución del proyecto
+
 npm install     # Instala todas las dependencias
 npm run dev     # Inicia el servidor de desarrollo
 
