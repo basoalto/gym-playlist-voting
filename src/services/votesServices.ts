@@ -26,7 +26,6 @@ export const getGyms = async () => {
 
 export const getPlayList = async () => {
     return [
-        // Gym A
         {
             id: 1,
             gymId: 1,
@@ -42,7 +41,6 @@ export const getPlayList = async () => {
             imageUrl: "https://example.com/cardio-flow.jpg"
         },
 
-        // Gym B
         {
             id: 3,
             gymId: 2,
@@ -58,7 +56,6 @@ export const getPlayList = async () => {
             imageUrl: "https://example.com/reggaeton-pesas.jpg"
         },
 
-        // Gym C
         {
             id: 5,
             gymId: 3,

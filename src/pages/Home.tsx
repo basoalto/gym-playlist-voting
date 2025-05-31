@@ -1,4 +1,3 @@
-
 function Home() {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-amber-100 to-amber-300">
