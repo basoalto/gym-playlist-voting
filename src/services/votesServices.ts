@@ -76,8 +76,8 @@ export const getPlayList = async () => {
 export const getVotes = async () => {
     return [
         { id: 1, playlistId: 1, dia: "Lunes", vote: 3 },
-        { id: 2, playlistId: 1, dia: "Miércoles", vote: 2 },
-        { id: 3, playlistId: 2, dia: "Viernes", vote: 5 },
-        { id: 4, playlistId: 3, dia: "Domingo", vote: 4 }
+        { id: 2, playlistId: 2, dia: "Miércoles", vote: 2 },
+        { id: 3, playlistId: 3, dia: "Viernes", vote: 5 },
+        { id: 4, playlistId: 4, dia: "Domingo", vote: 4 }
     ];
 };

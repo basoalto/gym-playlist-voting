@@ -9,10 +9,10 @@ type Vote = {
   vote: number;
 };
 type PopupVoteProps = {
-  onClose: () => void;
+  Close: () => void;
   id: number;
 };
-function PopupVote({ onClose,id }: PopupVoteProps) {
+function PopupVote({ Close,id }: PopupVoteProps) {
   const [vote, setVote] = useState<Vote[]>([]);
   const { hasVoted, addVote } = useVoteContext();
   useEffect(() => {
@@ -46,7 +46,7 @@ function PopupVote({ onClose,id }: PopupVoteProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center animate-fade-in">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md relative border-2 border-amber-300">
         <button
-          onClick={onClose}
+          onClick={Close}
           className="absolute top-4 right-4 text-2xl text-amber-500 hover:text-amber-700 font-bold focus:outline-none"
         >
           ×

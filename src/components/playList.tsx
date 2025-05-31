@@ -4,6 +4,7 @@ import { getPlayList } from "../services/votesServices";
 import PopupVote from "./popupVote";
 function PlayList({ id }: { id?: string }) {
   const [playList, setPlayList] = useState<any[]>([]);
+  const [showPopup, setShowPopup] = useState(0);
   useEffect(() => {
     const fetchplaylist = async () => {
       const response = await getPlayList();
@@ -27,8 +28,17 @@ function PlayList({ id }: { id?: string }) {
           </h2>
           <p className="text-gray-600">Votes: {playlist.votes}</p>
           <p className="text-gray-600">Gym ID: {playlist.gymId}</p>
-          <PopupVote onClose={() => {}} id={playlist.id} />
+          <button onClick={()=>{
+            setShowPopup(playlist.id)
+          }}>votar</button>
+            {playlist.id == showPopup ? (
+                <PopupVote
+                    Close={() => setShowPopup(0)}
+                    id={playlist.id}
+                />
+            ) :null}
         </div>
+
       ))}
     </div>
   );
