@@ -31,7 +31,6 @@ function PopupVote({ onClose,id }: PopupVoteProps) {
     fetchVotes();
   }, []);
   const handleVote = (item: Vote) => {
-    // if (!hasVoted(item.id, item.dia)) {
       addVote(item.id, item.dia);
       setVote((prev) => {
         return prev.map((vote) => {
@@ -41,7 +40,6 @@ function PopupVote({ onClose,id }: PopupVoteProps) {
           return vote;
         });
       });
-    // }
   };
 
   return (
