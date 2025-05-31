@@ -1,6 +1,6 @@
 import { getGyms } from "../services/votesServices";
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 type Gym = {
   id: number;
   name: string;
@@ -10,6 +10,7 @@ type Gym = {
 };
 
 function GimsList() {
+  const navigator = useNavigate();
   const [gims, setGims] = useState<Gym[]>([]);
   useEffect(() => {
     const fetchGyms = async () => {
@@ -19,8 +20,6 @@ function GimsList() {
     fetchGyms();
   }, []);
 
-
-  
   return (
     <>
       {gims.map((gym, index) => (
@@ -36,7 +35,11 @@ function GimsList() {
             alt={gym.name}
             className="w-full h-48 object-cover rounded mt-2"
           />
+        <button onClick={() => navigator(`/playlist/${gym.id}`)} className="mt-4 bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 transition-colors duration-200">
+            Ver Playlist
+        </button>
         </li>
+
       ))}
     </>
   );

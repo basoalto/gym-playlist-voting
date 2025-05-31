@@ -1,6 +1,5 @@
 // src/context/VoteContext.tsx
 import { createContext, useContext, useState, ReactNode } from "react";
-
 interface DayVotes {
   day: string;
   voted: boolean;
@@ -14,11 +13,11 @@ interface VoteContextType {
   addVote: (playlistId: number, day: string) => void;
   hasVoted: (playlistId: number, day: string) => boolean;
 }
-
 const VoteContext = createContext<VoteContextType | undefined>(undefined);
 
 export const VoteProvider = ({ children }: { children: ReactNode }) => {
   const [votes, setVotes] = useState<VoteEntry[]>([]);
+  
   const hasVoted = (playlistId: number, day: string): boolean => {
     const playlistVotes = votes.find(
       (entry) => entry.playlistId === playlistId
