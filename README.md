@@ -6,6 +6,7 @@ Vote Playlist es una plataforma web diseñada para gimnasios que permite a sus u
 
 
 🚀 Crear el proyecto (opcional si ya está clonado):
+
  npm create vite@latest vote-playlist --template react
 
 
