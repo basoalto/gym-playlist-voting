@@ -1,11 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import {getPlayList} from "../services/votesServices";
 function PlaylistPage() {
     const navigate = useNavigate();
     const { gymId } = useParams<{ gymId: string }>();
+    const [playList, setPlayList] = useState<any[]>([]);
     useEffect(() => {
         console.log("ID del gimnasio:", gymId);
+        const fetchplaylist = async () => {
+            const response = await getPlayList();
+            const playlists = response.filter((playlist) => playlist.gymId === Number(gymId));
+            setPlayList(playlists);
+        };
+        fetchplaylist()
     }, [gymId]);
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-amber-100 to-amber-300">

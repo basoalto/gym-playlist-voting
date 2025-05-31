@@ -18,12 +18,13 @@ function GimsList() {
     };
     fetchGyms();
   }, []);
+  
   return (
     <>
       {gims.map((gym, index) => (
         <li
           key={index}
-          className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200"
+          className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 mb-3"
         >
           <h2 className="text-xl font-semibold text-amber-600">{gym.name}</h2>
           <p className="text-gray-600">{gym.location}</p>
