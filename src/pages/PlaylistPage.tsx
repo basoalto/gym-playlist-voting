@@ -1,4 +1,3 @@
-import Playlist from "../components/playList";
 import { useNavigate } from "react-router-dom";
 
 
@@ -14,7 +13,6 @@ function PlaylistPage() {
                 ← Volver al listado de gimnasios
             </button>
             <div className="w-full max-w-2xl">
-                <Playlist/>
             </div>
         </div>
     );

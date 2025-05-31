@@ -8,15 +8,22 @@ type Vote = {
   dia: string;
   vote: number;
 };
-
-function PopupVote({ onClose }: { onClose: () => void }) {
+type PopupVoteProps = {
+  onClose: () => void;
+  id: number;
+};
+function PopupVote({ onClose,id }: PopupVoteProps) {
   const [vote, setVote] = useState<Vote[]>([]);
   const { hasVoted, addVote } = useVoteContext();
   useEffect(() => {
     const fetchVotes = async () => {
       try {
         const votes = await getVotes();
-        setVote(votes);
+        const parseVotes = votes.filter((item) => {
+          return item.playlistId === id;
+        }
+        );
+        setVote(parseVotes);
       } catch (error) {
         console.error("Error fetching votes:", error);
       }
@@ -24,26 +31,17 @@ function PopupVote({ onClose }: { onClose: () => void }) {
     fetchVotes();
   }, []);
   const handleVote = (item: Vote) => {
-    console.log(vote);
-    if (!hasVoted(item.id, item.dia)) {
-setVote((prev) => {
-  console.log("Votos anteriores:", prev);
-
-  return prev.map((vote) => {
-    console.log("Procesando voto:", vote);
-
-    if (item.id === vote.id) {
-      console.log(`Actualizando voto para id ${item.id}`);
-      return { ...vote, vote: vote.vote + 1 };
-    }
-
-    return vote;
-  });
-});
-
-
+    // if (!hasVoted(item.id, item.dia)) {
       addVote(item.id, item.dia);
-    }
+      setVote((prev) => {
+        return prev.map((vote) => {
+          if (item.id === vote.id) {
+            return { ...vote, vote: vote.vote + 1 };
+          }
+          return vote;
+        });
+      });
+    // }
   };
 
   return (

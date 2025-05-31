@@ -1,25 +1,25 @@
-export const getGyms = async ()=> {
+export const getGyms = async () => {
     return [
         {
             id: 1,
-            name: "Gym A",
+            name: "Smart Fit",
             location: "Location A",
             rating: 4.5,
             imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ94mkBY2GENkMfUYwwigFXrmc5HS4sv4e_KQ&s"
         },
         {
             id: 2,
-            name: "Gym B",
+            name: "Pacific",
             location: "Location B",
             rating: 4.0,
             imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUy7dJ6DDzfsdX6bMw7fHMbE673eMTpKC6Jg&s"
         },
         {
             id: 3,
-            name: "Gym C",
+            name: "Energy Fitness",
             location: "Location C",
             rating: 4.8,
-            imageUrl: "https://example.com/gym-c.jpg"
+            imageUrl: "https://www.mallmarina.cl/wp-content/uploads/2019/12/LOGOS-350x350-energy.png"
         }
     ]
 }
@@ -30,7 +30,7 @@ export const getPlayList = async () => {
         {
             id: 1,
             gymId: 1,
-            name: "Beast Mode Beats",
+            name: "Piernas al fallo",
             description: "Música para sacar al animal que llevas dentro.",
             imageUrl: "https://example.com/beast-mode.jpg"
         },
@@ -46,7 +46,7 @@ export const getPlayList = async () => {
         {
             id: 3,
             gymId: 2,
-            name: "Muscle Melodies",
+            name: "Dia de tren inferior",
             description: "Clásicos del gym para motivar tus bíceps.",
             imageUrl: "https://example.com/muscle-melodies.jpg"
         },
@@ -78,9 +78,9 @@ export const getPlayList = async () => {
 
 export const getVotes = async () => {
     return [
-        { playlistId: 1,  dia: "Lunes", vote: 3 },
-        { playlistId: 1,  dia: "Miércoles", vote: 2 },
-        { playlistId: 2,  dia: "Viernes", vote: 5 },
-        { playlistId: 3,  dia: "Domingo", vote: 4 }
+        { id: 1, playlistId: 1, dia: "Lunes", vote: 3 },
+        { id: 2, playlistId: 1, dia: "Miércoles", vote: 2 },
+        { id: 3, playlistId: 2, dia: "Viernes", vote: 5 },
+        { id: 4, playlistId: 3, dia: "Domingo", vote: 4 }
     ];
 };

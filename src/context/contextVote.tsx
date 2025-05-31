@@ -5,12 +5,10 @@ interface DayVotes {
   day: string;
   voted: boolean;
 }
-
 interface VoteEntry {
   playlistId: number;
   days: DayVotes[];
 }
-
 interface VoteContextType {
   votes: VoteEntry[];
   addVote: (playlistId: number, day: string) => void;
@@ -21,19 +19,18 @@ const VoteContext = createContext<VoteContextType | undefined>(undefined);
 
 export const VoteProvider = ({ children }: { children: ReactNode }) => {
   const [votes, setVotes] = useState<VoteEntry[]>([]);
-
   const hasVoted = (playlistId: number, day: string): boolean => {
     const playlistVotes = votes.find((entry) => entry.playlistId === playlistId);
     return !!playlistVotes?.days.find((d) => d.day === day && d.voted);
   };
+const addVote = (playlistId: number, day: string) => {
+  if (hasVoted(playlistId, day)) return;
 
-  const addVote = (playlistId: number, day: string) => {
-    if (hasVoted(playlistId, day)) return;
-    setVotes((prevVotes) => {
-      // Playlist no existe aún, crear nueva entrada
-      return [...prevVotes, { playlistId, days: [{ day, voted: true }] }];
-    });
-  };
+  setVotes((prevVotes) => {
+    return [...prevVotes, { playlistId, days: [{ day, voted: true }] }];
+  });
+};
+
 
   return (
     <VoteContext.Provider value={{ votes, addVote, hasVoted }}>
