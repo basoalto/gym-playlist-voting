@@ -21,3 +21,29 @@ Sigue la guía oficial para integrar Tailwind en un proyecto Vite:
  npm run dev     # Inicia el servidor de desarrollo
 
 
+
+
+🧱 Estructura del MCP (Model Context Protocol)
+
+La configuración mcp define los distintos servidores y herramientas que se integran dentro del entorno del proyecto mediante el Model Context Protocol (MCP). Este protocolo permite ejecutar accciones en fuentes de datos. A continuación, se describe cada uno de los servidores que utilizaremos:
+
+
+"mcp": {
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\lucas\\OneDrive\\Escritorio"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+},
+"chat.mcp.discovery.enabled": true
