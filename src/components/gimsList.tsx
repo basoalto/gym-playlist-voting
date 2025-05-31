@@ -18,6 +18,8 @@ function GimsList() {
     };
     fetchGyms();
   }, []);
+
+
   
   return (
     <>
